@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/floristsystemrepository
+    username: root
+    password: 8073
+
+  jpa:
+    hibernate:
+      ddl-auto: update

@@ -2,9 +2,7 @@ package edu.icet.controller;
 
 import edu.icet.dto.Customer;
 import edu.icet.service.CustomerService;
-import edu.icet.service.CustomerServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

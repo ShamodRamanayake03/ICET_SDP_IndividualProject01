@@ -1,61 +1,68 @@
 <div class="container mt-5">
-<h1 class="bg-danger p-3 text-center text-white">Manage Customer Form</h1>
+    <h1 class="bg-danger p-3 text-center text-white">Manage Customer Form</h1>
+    <div class="container mt-5">
+        <div class="form-group mt-3">
+          <form class="d-flex" role="search">
+            <input type="text" class="form-control text-center" placeholder="Enter Id to Search" [(ngModel)]="searchCustomerId" name="searchInput">
+            <button type="button" class="btn btn-outline-success" (click)="searchCustomer()">Search</button>
+          </form>
+        </div><br>   
     <div class="form-group mt-3">
-        <table class="table table-bordered table-hover">
-            <tr>
-                <th> Count </th>
-                <th> ID </th>
-                <th> Name</th>
-                <th> Contact</th>
-                <th> NIC </th>
-            </tr>
-             <tr *ngFor="let customer of customerList;index as i">
-                <td>{{i+1}} </td>
-                <td>{{customer.id}} </td>
-                <td>{{customer.name}} </td>
-                <td>{{customer.contact}} </td>
-                <td>{{customer.nic}} </td>
-                <td><button class="btn btn-danger" (click)="deleteCustomer(customer.id)"><i class="bi bi-trash3-fill"></i></button></td>
-                <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectUpdateCustomer(customer)"><i class="bi bi-pencil-square"></i></button></td>
-             </tr>
-         </table>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th> Count </th>
+                    <th> ID </th>
+                    <th> Name</th>
+                    <th> Contact</th>
+                    <th> NIC </th>
+                </tr>
+                 <tr *ngFor="let customer of customerList;index as i">
+                    <td>{{i+1}} </td>
+                    <td>{{customer.id}} </td>
+                    <td>{{customer.name}} </td>
+                    <td>{{customer.contact}} </td>
+                    <td>{{customer.nic}} </td>
+                    <td><button class="btn btn-danger" (click)="deleteCustomer(customer.id)"><i class="bi bi-trash3-fill"></i></button></td>
+                    <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectUpdateCustomer(customer)"><i class="bi bi-pencil-square"></i></button></td>
+                 </tr>
+             </table>
+        </div>
     </div>
-</div>
-   
-
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Customer</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
        
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">ID</label>
-            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.id" disabled="true">
+    
+    
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Customer</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Name</label>
-            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.name">
+          <div class="modal-body">
+           
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">ID</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.id" disabled="true">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Name</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.name">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Contact</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.contact">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">NIC</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.nic">
+              </div>
+           
           </div>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Contact</label>
-            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.contact">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveCustomer()">Update</button>
           </div>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">NIC</label>
-            <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedCustomer.nic">
-          </div>
-       
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveCustomer()">Update</button>
+        </div>
       </div>
     </div>
-  </div>
-</div>

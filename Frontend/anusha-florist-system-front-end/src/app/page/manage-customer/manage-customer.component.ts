@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class ManageCustomerComponent {
   public customerList: any = [];
+  public searchCustomerId: string = '';
+
   constructor(private http:HttpClient){
     this.loadTable(); 
   }
@@ -29,6 +31,33 @@ export class ManageCustomerComponent {
       alert("Customer Deleted");
     })
   }
+
+
+  searchCustomer() {
+    if (this.searchCustomerId) {
+      this.http.get(`http://localhost:8080/customer/search-customer/${this.searchCustomerId}`).subscribe(
+        (data: any) => {
+          if (data && Object.keys(data).length > 0) {
+            
+            this.customerList = [data];
+            alert("Customer Found");
+          } else {
+            
+            this.customerList = [];
+            alert("Customer not found.");
+          }
+        },
+        (error) => {
+         
+          console.error("Error searching customer", error);
+          alert("Error searching customer.");
+        }
+      );
+    } else {
+      alert("Please enter a Customer ID to search.");
+    }
+  }
+  
 
   public selectedCustomer:any={};
   selectUpdateCustomer(customer:any){

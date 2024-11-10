@@ -4,6 +4,8 @@ import { AddCustomerComponent } from './page/add-customer/add-customer.component
 import { ManageCustomerComponent } from './page/manage-customer/manage-customer.component';
 import { AddSupplierComponent } from './page/add-supplier/add-supplier.component';
 import { ManageSupplierComponent } from './page/manage-supplier/manage-supplier.component';
+import { AddItemComponent } from './page/add-item/add-item.component';
+import { ManageItemComponent } from './page/manage-item/manage-item.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +27,14 @@ export const routes: Routes = [
     {
         path:"manage-supplier",
         component:ManageSupplierComponent
+    },
+    {
+        path:"add-item",
+        component:AddItemComponent
+    },
+    {
+        path:"manage-item",
+        component:ManageItemComponent
     }
 
 ];

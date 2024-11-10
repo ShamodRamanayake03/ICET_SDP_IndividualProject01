@@ -1,0 +1,77 @@
+<div class="container mt-5">
+    <h1 class="bg-danger p-3 text-center text-white">Manage Item Form</h1>
+    <div class="container mt-5">
+        <div class="form-group mt-3">
+          <form class="d-flex" role="search">
+            <input type="text" class="form-control text-center" placeholder="Enter ID to Search" [(ngModel)]="searchItemId" name="searchInput">
+            <button type="button" class="btn btn-outline-success" (click)="searchItem()">Search</button>
+          </form>
+        </div><br>   
+    <div class="form-group mt-3">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th> Count </th>
+                    <th> ID </th>
+                    <th> Item Name</th>
+                    <th> Price</th>
+                    <th> Quantity </th>
+                    <th> Stock </th>
+                    <th> Image </th>
+                </tr>
+                 <tr *ngFor="let item of itemList;index as i">
+                    <td>{{i+1}} </td>
+                    <td>{{item.id}} </td>
+                    <td>{{item.name}} </td>
+                    <td>{{item.price}} </td>
+                    <td>{{item.stock}} </td>
+                    <td>  <img [src]="item.image" alt="Item Image" style="width: 50px; height: 50px; object-fit: cover;" *ngIf="item.image"></td>
+                    <td><button class="btn btn-danger" (click)="deleteItem(item.id)"><i class="bi bi-trash3-fill"></i></button></td>
+                    <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectUpdateItem(item)"><i class="bi bi-pencil-square"></i></button></td>
+                 </tr>
+             </table>
+        </div>
+    </div>
+       
+    
+    
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Item</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">ID</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedItem.id" disabled="true">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Name</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedItem.name">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Price</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedItem.price">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Stock Available</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedItem.stock">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Image</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedItem.image">
+              </div>
+            
+            
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveItem()">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>

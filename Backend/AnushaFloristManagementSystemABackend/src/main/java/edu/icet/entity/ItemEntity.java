@@ -18,7 +18,6 @@ public class ItemEntity {
     private Integer id;
     private String name;
     private Double price;
-    private Double qty;
     private Double stock;
     private String image;
 }

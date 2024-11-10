@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <h1 class="bg-danger p-3 text-center text-white">Add Item Form</h1>
+    
+    <div class="form-group mt-3">
+        <input type="text" class="form-control text-center" placeholder="Item Name" [(ngModel)]="item.name">
+    </div>
+    <div class="form-group mt-3">
+        <input type="text" class="form-control text-center" placeholder="Price Per Unit" [(ngModel)]="item.price">
+    </div>
+    <div class="form-group mt-3">
+        <input type="text" class="form-control text-center" placeholder="Stock Available" [(ngModel)]="item.stock">
+    </div>
+    <div class="form-group mt-3">
+        <input type="text" class="form-control text-center" placeholder="Image Location" [(ngModel)]="item.image">
+    </div>
+    <div class="form-group mt-4 text-center">
+        <button class="btn btn-danger px-5" id="btnAddItem" (click)="addItem()">Add Item</button>
+    </div>
+</div>
+ 

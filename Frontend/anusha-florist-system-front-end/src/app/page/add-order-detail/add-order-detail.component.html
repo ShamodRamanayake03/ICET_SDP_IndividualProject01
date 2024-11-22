@@ -1,0 +1,90 @@
+<div class="container mt-5">
+  <h2 class="bg-danger p-3 text-center text-white">Add Order Details</h2>
+
+  <div class="form-group mt-3">
+    <input
+      type="text"
+      placeholder="Item ID"
+      [(ngModel)]="itemId"
+      (ngModelChange)="loadItemData()"
+      class="form-control text-center"
+    />
+  </div>
+
+
+  <div *ngIf="item.name">
+    <div class="form-group mt-3">
+      <label>Item Name</label>
+      <input
+        type="text"
+        [(ngModel)]="item.name"
+        class="form-control text-center"
+        disabled
+      />
+    </div>
+    <div class="form-group mt-3">
+      <label>Stock Remaining</label>
+      <input
+        type="text"
+        [(ngModel)]="item.stock"
+        class="form-control text-center"
+        disabled
+      />
+    </div>
+    <div class="form-group mt-3">
+      <label>Unit Price</label>
+      <input
+        type="number"
+        [(ngModel)]="item.price"
+        (ngModelChange)="calculateTotalPrice()"
+        class="form-control text-center"
+        disabled
+      />
+    </div>
+  </div>
+
+
+  <div class="form-group mt-3">
+    <input
+      type="number"
+      class="form-control text-center"
+      placeholder="Quantity"
+      [(ngModel)]="qty"
+      (ngModelChange)="calculateTotalPrice()"
+    />
+  </div>
+
+
+  <div class="form-group mt-3">
+    <label>Total Price</label>
+    <input
+      type="number"
+      [value]="totalPrice"
+      class="form-control text-center"
+      disabled
+    />
+  </div>
+
+ 
+  <div class="form-group mt-3">
+      <input
+      type="text"
+      class="form-control text-center"
+      placeholder="Order ID"
+      [(ngModel)]="orderDetail.orderId"
+      disabled
+    />
+  </div>
+  
+  
+  <div class="form-group mt-4 text-center">
+    <button
+      class="btn btn-danger px-5"
+      id="btnAddOrderDetail"
+      (click)="addOrderDetail()"
+    >
+      Add OrderDetail
+    </button>
+    
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="container mt-5">
+    <h1 class="bg-danger p-3 text-center text-white">Manage OrderDetail Form</h1>
+    <div class="container mt-5">
+        <div class="form-group mt-3">
+          <form class="d-flex" role="search">
+            <input type="text" class="form-control text-center" placeholder="Enter ID to Search" [(ngModel)]="searchOrderDetailId" name="searchInput">
+            <button type="button" class="btn btn-outline-success" (click)="searchOrderDetail()">Search</button>
+          </form>
+        </div><br>   
+    <div class="form-group mt-3">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th> Count </th>
+                    <th> ItemID </th>
+                    <th> Item Name</th>
+                    <th> Stock</th>
+                    <th> Quantity </th>
+                    <th> Unit Price </th>
+                    <th> Total Price</th>
+                </tr>
+                 <tr *ngFor="let orderDetail of orderDetailList;index as i">
+                    <td>{{i+1}} </td>
+                    <td>{{orderDetail.itemId}} </td>
+                    <td>{{orderDetail.name}} </td>
+                    <td>{{orderDetail.stock}} </td>          
+                    <td>{{orderDetail.qty}} </td>
+                    <td>{{orderDetail.unitPrice}} </td>
+                    <td>{{orderDetail.totalPrice}} </td>
+                    <td><button class="btn btn-danger" (click)="deleteOrderDetail(orderDetail.id)"><i class="bi bi-trash3-fill"></i></button></td>
+                    <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectUpdateOrderDetail(orderDetail)"><i class="bi bi-pencil-square"></i></button></td>
+                 </tr>
+             </table>
+        </div>
+    </div>
+       
+    
+    
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Update OrderDetail</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">ID</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedOrderDetail.id" disabled="true">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Item ID</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedOrderDetail.itemId" disabled="true">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Name</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedOrderDetail.name" disabled="true">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Stock</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedOrderDetail.stock" disabled="true">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Qty</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedOrderDetail.qty">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Unit Price</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedOrderDetail.unitPrice" disabled="true">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Total Price</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedOrderDetail.totalPrice">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Order ID</label>
+                <input type="text" class="form-control" id="recipient-name" [(ngModel)]="selectedOrderDetail.orderId" disabled="true">
+              </div>
+            
+            
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="saveOrderDetail()">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>

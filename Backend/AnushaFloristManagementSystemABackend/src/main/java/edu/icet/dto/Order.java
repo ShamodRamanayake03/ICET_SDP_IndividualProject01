@@ -1,5 +1,6 @@
 package edu.icet.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +15,5 @@ public class Order {
     private Integer id;
     private String name;
     private String date;
-    private Double tPrice;
+    private Double fprice;
 }

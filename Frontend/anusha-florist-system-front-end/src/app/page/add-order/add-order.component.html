@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h1 class="bg-danger p-3 text-center text-white">Add Order Form</h1>
+  <div class="form-group mt-3">
+    <input type="text" class="form-control text-center" placeholder="Order Id" [(ngModel)]="orders.id">
+</div>
+  <div class="form-group mt-3">
+      <input type="text" class="form-control text-center" placeholder="Customer Name" [(ngModel)]="orders.name">
+  </div>
+  <div class="form-group mt-3">
+      <input type="text" class="form-control text-center" placeholder="Date" [(ngModel)]="orders.date">
+  </div>
+  <div class="form-group mt-3">
+      <input type="number" class="form-control text-center" placeholder="Total Price" [(ngModel)]="orders.fprice">
+  </div>
+  <div class="form-group mt-4 text-center">
+    <button class="btn btn-danger px-5" id="btnAddItem" (click)="addItem()">Add Items</button>
+</div>
+  <div class="form-group mt-4 text-center">
+      <button class="btn btn-danger px-5" id="btnAddOrder" (click)="addOrder()">Add Order</button>
+  </div>
+</div>

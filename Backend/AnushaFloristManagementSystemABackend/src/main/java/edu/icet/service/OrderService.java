@@ -11,5 +11,5 @@ public interface OrderService {
     void deleteOrder(Integer id);
     Order searchById(Integer id);
     List<Order> getAllOrders();
-
+    List<Order> getOrdersById(Integer id);
 }

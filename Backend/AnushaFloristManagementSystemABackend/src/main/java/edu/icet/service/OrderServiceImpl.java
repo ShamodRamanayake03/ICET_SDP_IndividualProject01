@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -45,4 +47,17 @@ public class OrderServiceImpl implements OrderService{
         });
         return orderArrayList;
     }
+
+    public List<Order> getOrdersById(Integer id) {
+        List<Order> orderList = new ArrayList<>();
+
+
+        Optional<OrderEntity> orderEntityOptional = repository.findById(id);
+        if (orderEntityOptional.isPresent()) {
+            OrderEntity orderEntity = orderEntityOptional.get();
+            orderList.add(mapper.map(orderEntity, Order.class));
+        }
+        return orderList;
+    }
+
 }
